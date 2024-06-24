@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;   
 using Microsoft.EntityFrameworkCore;
 
 
@@ -11,8 +11,8 @@ namespace EF_Tutorial
     public class AppDbContext : DbContext //adds in the EntityFrameworkCore
     {
         public  DbSet<User> Users { get; set; } //tells entity framework what it can access
-        
-
+        public DbSet<Vendor> Vendors { get; set; }
+        public DbSet<Product> Products { get; set; }
         public AppDbContext()//default constructor
         {
         }

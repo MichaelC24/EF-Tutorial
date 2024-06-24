@@ -1,4 +1,7 @@
-﻿namespace EF_Tutorial
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
+namespace EF_Tutorial
 {
     internal class Program
     {
@@ -7,11 +10,13 @@
             var context = new AppDbContext(); //creates an instance of AppDbContext
 
             var users = context.Users.ToList(); //gets all of the info from users and saves it to a list
+            var vendors = context.Vendors.ToList();
+            var products = context.Products.Include(x => x.Vendor).ToList();
 
-            foreach (var item in users)
-            {
-                Console.WriteLine($"Name: {item.Firstname} {item.Lastname}");
-            }
+
+            vendors.ForEach(v => {Console.WriteLine(v.Name);});
+
+            products.ForEach(v => {Console.WriteLine($"Vendor Name: {v.Vendor!.Name} | Product Name: {v.Name}");});
         }
     }
 }
