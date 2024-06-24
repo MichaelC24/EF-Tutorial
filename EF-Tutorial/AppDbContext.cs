@@ -13,6 +13,8 @@ namespace EF_Tutorial
         public  DbSet<User> Users { get; set; } //tells entity framework what it can access
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Request> Requests { get; set; }
+        public DbSet<Requestlines> Requestlines { get; set; }
         public AppDbContext()//default constructor
         {
         }
